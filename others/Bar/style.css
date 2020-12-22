@@ -118,21 +118,3 @@ form {
 input {
   margin: 0 7px;
 }
-
-
-
-.carousel-inner{
-  height: 80vh;
-  margin: auto;
-  display: flex;
-}
-.carousel-item{
-  margin: auto;
-}
-.carousel-indicators li{
-  background-color: #000000 !important;
-}
-.carousel-control-prev-icon, .carousel-control-next-icon{
-  	filter: invert(9);
-}
-

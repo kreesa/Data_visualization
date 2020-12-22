@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<textarea id="displaydata"></textarea>
+</body>
+<script type="text/javascript">
+	var example =[
+    {
+    "month": 4,
+    "value": 4500
+    },
+    {
+    "month": 6,
+    "value": 5000
+    },
+    {
+    "month": 7,
+    "value": 4000
+    }
+]
+
+	var data = console.log(example);
+
+ 	var cases = new Array();
+    var time = new Array();
+    var display = document.getElementById('displaydata');
+
+    // data["example"][i]["month"];
+    var i=0;
+    example.forEach(()=>{  
+        //Value display gareko tyo textarea ma
+        display+= i+example[i].month +'.'+ example[i].value;
+        // cases[i]=example[i].value;
+        // time[i]=example[i].month;
+        i++;
+    });
+
+</script>
+</html>
