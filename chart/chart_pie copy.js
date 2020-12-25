@@ -1,30 +1,30 @@
+function make_chart_pie(){
 // var width = 960,
 //     height = 500,
-var width = 960,
-    height = 400,
+var width = 650,
+    height = 300,
     radius = Math.min(width, height) / 2;
 
-var color = d3.scale.category20();
+var color = d3.scaleOrdinal(d3.schemeCategory20);
 
-var pie = d3.layout.pie()
+var pie = d3.pie()
     .value(function(d) { return d.apples; })
     .sort(null);
 
-var arc = d3.svg.arc()
+var arc = d3.arc()
     .innerRadius(radius - 100)
     .outerRadius(radius - 20);
 
-var svg = d3.select(".svg1")
-    // .append("svg")
+var svg = d3.select("#chart_pie")
     .attr("width", width)
     .attr("height", height)
   .append("g")
-    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+    .attr("transform", "translate(" + width / 2.5 + "," + height / 2 + ")");
 
-d3.tsv("../d3js/Pie/data_new.tsv", type, function(error, data) {
+d3.json("Data/gender.json", type, function(error, data) {
   if (error) throw error;
 
-  var path = svg.datum(data).selectAll("path")
+  var path = svg.datum(data.gender).selectAll("path")
       .data(pie)
     .enter().append("path")
       .attr("fill", function(d, i) { return color(i); })
@@ -62,4 +62,7 @@ function arcTween(a) {
   return function(t) {
     return arc(i(t));
   };
+}
+
+
 }

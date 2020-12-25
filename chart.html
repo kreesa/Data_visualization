@@ -14,6 +14,8 @@
 
         
         <script src="https://d3js.org/d3.v4.min.js"></script>
+
+        
         
 
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script> -->
@@ -35,7 +37,7 @@
                   <li><a href="news.html"><i class="fas fa-newspaper"></i>News</a></li>
                   <li><a href="FAQ.html"><i class="fas fa-question"></i>FAQ</a></li>
                   <li><a href="#"><i class="fas fa-user"></i>Contact</a></li>
-                  <!-- <li><a href="#"><i class="fas fa-map-pin"></i>Map</a></li> -->
+                  <li><a href="map.html"><i class="fas fa-map-pin"></i>Map</a></li>
               </ul> 
 
           </div>
@@ -49,7 +51,7 @@
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-header d-flex ">
-                                <div class="mr-auto">Pie Chart</div>
+                                <div class="m-auto">Pie Chart</div>
                             </div>
                             <div class="card-body">
                                 <svg id="chart_pie" width="400" height="400"></svg>
@@ -63,10 +65,10 @@
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-header d-flex ">
-                                <div class="mr-auto">Arko Heading ho</div>
+                                <div class="m-auto">Area chart</div>
                             </div>
                             <div class="card-body">
-                                <div id="chart_compare" width="400" height="400"></div>
+                                <svg id="chart_area" width="400" height="400"></svg>
                             </div>
                         </div>
                     </div>
@@ -76,7 +78,7 @@
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-header d-flex ">
-                                <div class="mr-auto">Yo heading ho</div>
+                                <div class="m-auto">Bar Chart</div>
                             </div>
                             <div class="card-body">
                                 <svg id="chart_bar" width="400" height="400"></svg>
@@ -86,7 +88,7 @@
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-header d-flex ">
-                                <div class="mr-auto">Arko Heading ho</div>
+                                <div class="m-auto">Bar chart 2</div>
                             </div>
                             <div class="card-body">
                                 <svg id="chart_bar_2" width="400" height="400"></svg>
@@ -95,8 +97,24 @@
                     </div>
                 </div>
 
+                <div class="row my-4">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header d-flex ">
+                                <div class="m-auto">Radial Chart</div>
+                            </div>
+                            <div class="card-body">
+                                <svg id="chart_radial" width="960" height="1000"></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
             </div>
           </div>
+
+          
 
 
 
@@ -115,11 +133,15 @@
     <script src="Chart/chart_pie.js"></script>
     <script src="Chart/bar.js"></script>
     <script src="Chart/bar_2.js"></script>
+    <script src="Chart/area_chart.js"></script>
+    <script src="Chart/chart_radial.js"></script>
+    
     <script>
        
         // make_chart_bar_2();
         make_chart_bar();
         make_chart_pie();
+        make_chart_area();
         
     </script>
 </html>

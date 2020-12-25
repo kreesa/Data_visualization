@@ -1,3 +1,4 @@
+
 function make_chart_bar()    {
     var svg = d3.select("#chart_bar"),
         margin = 200,

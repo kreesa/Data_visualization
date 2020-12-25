@@ -1,0 +1,72 @@
+{
+    "gender": {
+        "cases": [
+            {
+                "count": 56,
+                "gender": "Female"
+            },
+            {
+                "count": 55669,
+                "gender": "male"
+            },
+            {
+                "count": 686,
+                "gender": "Male"
+            },
+            {
+                "count": 21347,
+                "gender": "female"
+            },
+            {
+                "count": 59,
+                "gender": null
+            }
+        ],
+        "active": [
+            {
+                "count": 13931,
+                "gender": "male"
+            },
+            {
+                "count": 6960,
+                "gender": "female"
+            }
+        ],
+        "recovered": [
+            {
+                "count": 56,
+                "gender": "Female"
+            },
+            {
+                "count": 41390,
+                "gender": "male"
+            },
+            {
+                "count": 686,
+                "gender": "Male"
+            },
+            {
+                "count": 14238,
+                "gender": "female"
+            },
+            {
+                "count": 58,
+                "gender": null
+            }
+        ],
+        "deaths": [
+            {
+                "count": 1,
+                "gender": null
+            },
+            {
+                "count": 149,
+                "gender": "female"
+            },
+            {
+                "count": 348,
+                "gender": "male"
+            }
+        ]
+    }
+}

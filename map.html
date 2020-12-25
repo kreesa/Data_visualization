@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+     
+      <link rel="stylesheet" href="./css/style.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
+
+        
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+
+        <!-- usa map -->
+        <script src="https://d3js.org/topojson.v2.min.js"></script>
+
+
+        <!-- world map -->
+        <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+        <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script> -->
+        <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+        
+        <title>d3 charts</title>
+    </head>
+<style>
+
+.states :hover {
+  fill: red;
+}
+
+.state-borders {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 0.5px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+
+</style>
+
+<body>
+<div class="wrapper">
+    <div class="sidebar">
+        <h2>Covid-19</h2>
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="chart.html"><i class="fas fa-chart-line"></i>Charts</a></li>
+            <li><a href="news.html"><i class="fas fa-newspaper"></i>News</a></li>
+            <li><a href="FAQ.html"><i class="fas fa-question"></i>FAQ</a></li>
+            <li><a href="#"><i class="fas fa-user"></i>Contact</a></li>
+            <li><a href="map.html"><i class="fas fa-map-pin"></i>Map</a></li>
+        </ul> 
+
+    </div>
+
+
+
+    <div class="main_content my-5">
+      <div class="container" id="content">
+
+          <div class="row my-4">
+              <div class="col-md-12">
+                  <div class="card">
+                      <div class="card-header d-flex ">
+                          <div class="mr-auto">Map USA</div>
+                      </div>
+                      <svg id="map_usa" width="960" height="600"></svg>
+                  </div>
+              </div>
+            
+          </div>   
+          <div class="row my-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header d-flex ">
+                        <div class="mr-auto">Map World choropleth</div>
+                    </div>
+                    <svg id="my_dataviz" width="400" height="300"></svg>>
+                    <!-- <svg id="map_choropleth" width="400" height="300"></svg> -->
+                </div>
+            </div>
+          
+        </div>    
+             
+
+          
+      </div>
+    </div>
+
+    
+
+
+
+    
+  
+
+</div>
+  
+</body>
+
+<script src="Chart/map_choropleth.js"></script>
+
+
+<script>
+
+var svg = d3.select("#map_usa");
+
+var path = d3.geoPath();
+
+d3.json("https://d3js.org/us-10m.v1.json", function(error, us) {
+  if (error) throw error;
+
+  svg.append("g")
+      .attr("class", "states")
+    .selectAll("path")
+    .data(topojson.feature(us, us.objects.states).features)
+    .enter().append("path")
+      .attr("d", path);
+
+  svg.append("path")
+      .attr("class", "state-borders")
+      .attr("d", path(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; })));
+});
+
+</script>
+
+
+
+
+
+</html>

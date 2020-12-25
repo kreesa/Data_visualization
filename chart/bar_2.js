@@ -24,7 +24,7 @@ function success() {
     make_chart_bar_2(sabai_dates,harek_date_ko_infected);
 // }
 
-// function make_chart_bar_2(value1,value2){
+// function make_chart_bar_2(a,b){
     var svg = d3.select("#chart_bar_2"),
             margin = 200,
             width = svg.attr("width") - margin,
@@ -47,9 +47,9 @@ function success() {
         //     if (error) {
         //         throw error;
         //     }
-        function make_chart_bar_2(a,b){
-            xScale.domain(data.map(function(a,b) { return a; }));
-            yScale.domain([0, d3.max(data, function(a,b) { return b; })]);
+    function make_chart_bar_2(a,b){
+            xScale.domain(data.map(a));
+            yScale.domain([0, d3.max(b)]);
     
             g.append("g")
              .attr("transform", "translate(0," + height + ")")
@@ -78,10 +78,10 @@ function success() {
              .data(data)
              .enter().append("rect")
              .attr("class", "bar")
-             .attr("x", function(a) { return a; })
-             .attr("y", function(b) { return b.value; })
+             .attr("x", a)
+             .attr("y", b)
              .attr("width", xScale.bandwidth())
-             .attr("height", function(d) { return height - yScale(d.value); });
+             .attr("height", function() { return height - yScale(b); });
         // });
             
     }

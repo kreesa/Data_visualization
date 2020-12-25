@@ -13,7 +13,10 @@
         
 
         
-        <script src="https://d3js.org/d3.v4.min.js"></script>
+      <script src="https://d3js.org/d3.v3.min.js"></script>
+
+      <!-- for map_forced_directed -->
+      <script src="//d3js.org/topojson.v1.min.js"></script> 
         
 
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script> -->
@@ -21,6 +24,18 @@
         
         <title>d3 charts</title>
     </head>
+    <style>
+                path {
+        fill: #ddd;
+        fill-opacity: .8;
+        stroke: #fff;
+        stroke-width: 1.5px;
+        }
+
+        line {
+        stroke: #999;
+        }
+    </style>
 
     <body>
         
@@ -30,12 +45,12 @@
           <div class="sidebar">
               <h2>Covid-19</h2>
               <ul>
-                  <li><a href="/"><i class="fas fa-home"></i>Home</a></li>
+                  <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
                   <li><a href="chart.html"><i class="fas fa-chart-line"></i>Charts</a></li>
                   <li><a href="news.html"><i class="fas fa-newspaper"></i>News</a></li>
                   <li><a href="FAQ.html"><i class="fas fa-question"></i>FAQ</a></li>
                   <li><a href="#"><i class="fas fa-user"></i>Contact</a></li>
-                  <!-- <li><a href="#"><i class="fas fa-map-pin"></i>Map</a></li> -->
+                  <li><a href="map.html"><i class="fas fa-map-pin"></i>Map</a></li>
               </ul> 
 
           </div>
@@ -46,54 +61,32 @@
             <div class="container" id="content">
 
                 <div class="row my-4">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="card">
                             <div class="card-header d-flex ">
-                                <div class="mr-auto">Pie Chart</div>
+                                <div class="m-auto">Forced Directed map</div>
                             </div>
                             <div class="card-body">
-                                <svg id="chart_pie" width="400" height="400"></svg>
-                                <form>
-                                    <label><input type="radio" name="dataset" value="apples" checked> Apples</label>
-                                    <label><input type="radio" name="dataset" value="oranges"> Oranges</label>
-                                  </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-header d-flex ">
-                                <div class="mr-auto">Arko Heading ho</div>
-                            </div>
-                            <div class="card-body">
-                                <div id="chart_compare" width="400" height="400"></div>
+                                <svg id="map_forced_directed" width="960" height="800"></svg>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="row my-4">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="card">
                             <div class="card-header d-flex ">
-                                <div class="mr-auto">Yo heading ho</div>
+                                <div class="m-auto">Stacked chart</div>
                             </div>
                             <div class="card-body">
-                                <svg id="chart_bar" width="400" height="400"></svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-header d-flex ">
-                                <div class="mr-auto">Arko Heading ho</div>
-                            </div>
-                            <div class="card-body">
-                                <svg id="chart_bar_2" width="400" height="400"></svg>
+                                <svg id="chart_stacked" width="960" height="600"></svg>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                    
 
             </div>
           </div>
@@ -112,13 +105,15 @@
       
  
     </body>
-    <script src="Chart/chart_pie.js"></script>
-    <script src="Chart/bar.js"></script>
+
+    <script src="Chart/map_forceddirected.js"></script>
+    <script src="Chart/stacked.js"></script>
     <script>
-       
-        make_chart_bar_2();
-        make_chart_bar();
-        make_chart_pie();
+  
+        make_map_forced_directed();
+        make_chart_stacked();
+
+
         
     </script>
 </html>
