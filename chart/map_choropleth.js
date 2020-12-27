@@ -1,5 +1,6 @@
+function make_map_choropleth(){ 
 // The svg
-var svg = d3.select("svg"),
+var svg = d3.select("my_dataviz"),
   width = +svg.attr("width"),
   height = +svg.attr("height");
 
@@ -40,3 +41,5 @@ function ready(error, topo) {
         return colorScale(d.total);
       });
     }
+
+  }

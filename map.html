@@ -64,6 +64,17 @@
 
     <div class="main_content my-5">
       <div class="container" id="content">
+          
+        <div class="row my-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header d-flex ">
+                        <div class="mr-auto">Map World choropleth</div>
+                    </div>
+                    <svg id="my_dataviz" width="960" height="600"></svg>
+                    <!-- <svg id="map_choropleth" width="400" height="300"></svg> -->
+                </div>
+            </div>
 
           <div class="row my-4">
               <div class="col-md-12">
@@ -76,16 +87,7 @@
               </div>
             
           </div>   
-          <div class="row my-4">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header d-flex ">
-                        <div class="mr-auto">Map World choropleth</div>
-                    </div>
-                    <svg id="my_dataviz" width="400" height="300"></svg>>
-                    <!-- <svg id="map_choropleth" width="400" height="300"></svg> -->
-                </div>
-            </div>
+          
           
         </div>    
              
@@ -105,30 +107,17 @@
   
 </body>
 
+<script src="Chart/map_usa.js"></script>
 <script src="Chart/map_choropleth.js"></script>
+
 
 
 <script>
 
-var svg = d3.select("#map_usa");
 
-var path = d3.geoPath();
 
-d3.json("https://d3js.org/us-10m.v1.json", function(error, us) {
-  if (error) throw error;
-
-  svg.append("g")
-      .attr("class", "states")
-    .selectAll("path")
-    .data(topojson.feature(us, us.objects.states).features)
-    .enter().append("path")
-      .attr("d", path);
-
-  svg.append("path")
-      .attr("class", "state-borders")
-      .attr("d", path(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; })));
-});
-
+make_map_usa();
+make_map_choropleth();
 </script>
 
 
